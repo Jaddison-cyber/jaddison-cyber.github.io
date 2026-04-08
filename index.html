@@ -6,149 +6,482 @@
 <title>Ty | Cybersecurity Portfolio</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Segoe UI,Tahoma,Verdana,sans-serif;
-background:linear-gradient(180deg,#04070f,#07101f,#04070f);
-color:#e6edf7;
+* {
+  box-sizing: border-box;
 }
 
-a{color:#7ed7ff;text-decoration:none}
-a:hover{color:#b6ebff}
-
-.topbar{
-position:sticky;
-top:0;
-background:rgba(5,10,24,.9);
-border-bottom:1px solid rgba(126,215,255,.15);
+html {
+  scroll-behavior: smooth;
 }
 
-.nav{
-max-width:1100px;
-margin:auto;
-padding:16px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(45, 88, 188, 0.18), transparent 30%),
+    linear-gradient(180deg, #03060d 0%, #081120 45%, #03060d 100%);
+  color: #e8eef7;
 }
 
-.brand{
-font-weight:700;
-letter-spacing:.08em;
-text-transform:uppercase;
+a {
+  color: #7dd8ff;
+  text-decoration: none;
 }
 
-.hero{
-max-width:1100px;
-margin:auto;
-padding:80px 20px 40px;
+a:hover {
+  color: #b5eeff;
 }
 
-.hero h1{
-font-size:3rem;
-margin:0 0 15px;
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(4, 9, 20, 0.82);
+  border-bottom: 1px solid rgba(125, 216, 255, 0.12);
 }
 
-.hero p{
-color:#c9d9ea;
-max-width:700px;
+.nav {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.section{
-max-width:1100px;
-margin:auto;
-padding:20px;
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8f6ff;
 }
 
-.card{
-background:#0b1224;
-border:1px solid rgba(126,215,255,.12);
-padding:25px;
-border-radius:14px;
-margin-bottom:20px;
+.nav-links a {
+  margin-left: 20px;
+  font-weight: 600;
 }
 
-.projects{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.hero {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 90px 22px 60px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 28px;
+  align-items: center;
 }
 
-.footer{
-text-align:center;
-padding:40px;
-color:#7f93aa;
+.kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 216, 255, 0.18);
+  background: rgba(16, 30, 57, 0.72);
+  color: #8fe5ff;
 }
 
-@media(max-width:800px){
-.projects{grid-template-columns:1fr}
-.hero h1{font-size:2rem}
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: 3.35rem;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #f8fbff;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 0 26px;
+  color: #c8d7e6;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #55d0ff, #2e7cff);
+  color: #03111c;
+  box-shadow: 0 10px 30px rgba(46, 124, 255, 0.24);
+}
+
+.btn-primary:hover {
+  color: #03111c;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(125, 216, 255, 0.16);
+  background: rgba(12, 21, 41, 0.72);
+  color: #d8f3ff;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.terminal {
+  background: linear-gradient(180deg, rgba(8, 16, 31, 0.98), rgba(7, 12, 23, 0.98));
+  border: 1px solid rgba(125, 216, 255, 0.12);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+}
+
+.terminal-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2d425f;
+}
+
+.terminal pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: Consolas, Monaco, monospace;
+  color: #93eaff;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.section {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 22px 18px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  color: #f4f9ff;
+}
+
+.section-sub {
+  margin: 0 0 26px;
+  max-width: 760px;
+  color: #96a9bf;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+.card {
+  grid-column: span 12;
+  background: linear-gradient(180deg, rgba(10, 19, 36, 0.98), rgba(7, 12, 24, 0.98));
+  border: 1px solid rgba(125, 216, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #f4fbff;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 0;
+  color: #c8d7e6;
+  line-height: 1.7;
+}
+
+.span-7 { grid-column: span 7; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-4 { grid-column: span 4; }
+
+.project-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(33, 58, 110, 0.45);
+  color: #8fe5ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-card {
+  transition: 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(125, 216, 255, 0.24);
+}
+
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(16, 28, 53, 0.95);
+  border: 1px solid rgba(125, 216, 255, 0.12);
+  color: #d6ecf7;
+  font-size: 0.95rem;
+}
+
+.log-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #c8d7e6;
+  line-height: 1.8;
+}
+
+.footer {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 36px 22px 56px;
+  text-align: center;
+  color: #7d8fa5;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 920px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .span-7, .span-5, .span-6, .span-4 {
+    grid-column: span 12;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <div class="topbar">
-<div class="nav">
-<div class="brand">Ty // Cyber Portfolio</div>
-<div>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-</div>
-</div>
-</div>
-
-<div class="hero">
-<h1>Cybersecurity Portfolio</h1>
-<p>Documenting my cybersecurity learning, investigations, OSINT workflow, and digital forensics development.</p>
+  <div class="nav">
+    <div class="brand">Ty // Cyber Portfolio</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#logbook">Logbook</a>
+    </div>
+  </div>
 </div>
 
-<div class="section" id="about">
-<div class="card">
-<h2>About Me</h2>
-<p>I am building a cybersecurity portfolio focused on investigative thinking, OSINT, virtual lab environments, and digital forensics. This site documents my progression and hands-on work.</p>
-</div>
-</div>
+<section class="hero">
+  <div>
+    <div class="kicker">Cybersecurity Student • Veteran • Investigative Track</div>
+    <h1>Building the lab. Following the signal. Documenting the work.</h1>
+    <p>
+      This portfolio tracks my growth in cybersecurity through virtual lab work, OSINT development,
+      investigative tooling, and hands-on documentation. The mission is simple: build real capability,
+      keep the paperwork clean, and leave behind evidence of the work.
+    </p>
 
-<div class="section" id="projects">
-<h2>Projects</h2>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="#projects">View Projects</a>
+      <a class="btn-secondary" href="https://github.com/jaddison-cyber" target="_blank">GitHub Profile</a>
+    </div>
+  </div>
 
-<div class="projects">
+  <div class="terminal">
+    <div class="terminal-top">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+<pre>> status_report --current
+[ OK ] portfolio online
+[ OK ] lab environment deployed
+[ OK ] project documentation underway
 
-<div class="card">
-<h3>
-<a href="/projects/vm-lab-setup/">
-Cybersecurity VM Lab Setup
-</a>
-</h3>
-<p>Building an isolated virtual lab for cybersecurity learning and OSINT workflows.</p>
-</div>
+> focus_areas
+- OSINT
+- investigative analysis
+- digital forensics
+- homelab experimentation
 
-<div class="card">
-<h3>
-<a href="/projects/maltego-first-look/">
-Maltego First Look
-</a>
-</h3>
-<p>Initial exposure to Maltego and link analysis for investigative workflows.</p>
-</div>
+> next_targets
+- Maltego screenshots
+- OSINT environment page
+- classified banner project</pre>
+  </div>
+</section>
 
-</div>
-</div>
+<section class="section" id="about">
+  <h2 class="section-title">About</h2>
+  <p class="section-sub">
+    This site is my running case file. Each page documents a tool, a lab, or a workflow that helped move me
+    from classroom theory into hands-on investigative thinking.
+  </p>
 
-<div class="section" id="skills">
-<div class="card">
-<h2>Skills & Tools</h2>
-<p>VirtualBox • OSINT • Maltego • Windows VM • Investigative Documentation • Cyber Lab Setup</p>
-</div>
-</div>
+  <div class="grid">
+    <div class="card span-7">
+      <h3>Who I Am</h3>
+      <p>
+        I am a cybersecurity student and veteran building toward investigative and forensic-style work.
+        I am especially interested in OSINT, relationship mapping, cyber labs, and disciplined documentation
+        that turns trial-and-error into something useful.
+      </p>
+    </div>
+
+    <div class="card span-5">
+      <h3>Current Mission</h3>
+      <p>
+        Build a stronger technical foundation, document every meaningful step, and turn experiments into a portfolio
+        that shows consistency, curiosity, and real operational growth.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2 class="section-title">Featured Projects</h2>
+  <p class="section-sub">
+    These are the first entries in the logbook. Small beginnings, but clean beginnings.
+  </p>
+
+  <div class="grid">
+    <div class="card span-6 project-card">
+      <div class="project-tag">Project 01</div>
+      <h3><a href="/projects/vm-lab-setup/">Cybersecurity VM Lab Setup</a></h3>
+      <p>
+        Building an isolated virtual environment for cybersecurity learning, OSINT workflows, and repeatable lab experimentation.
+      </p>
+    </div>
+
+    <div class="card span-6 project-card">
+      <div class="project-tag">Project 02</div>
+      <h3><a href="/projects/maltego-first-look/">Maltego First Look</a></h3>
+      <p>
+        Early exploration of link analysis, entity mapping, and how Maltego supports investigative workflow development.
+      </p>
+    </div>
+
+    <div class="card span-6 project-card">
+      <div class="project-tag">Project 03</div>
+      <h3><a href="/projects/osint-environment-setup/">OSINT Environment Setup</a></h3>
+      <p>
+        Building a more deliberate browser and workflow setup for OSINT research, documentation, and cleaner investigative habits.
+      </p>
+    </div>
+
+    <div class="card span-6 project-card">
+      <div class="project-tag">Project 04</div>
+      <h3><a href="/projects/classified-banner-experiment/">Classified Banner Experiment</a></h3>
+      <p>
+        Testing a persistent desktop classification-style banner in the VM using scripting and Windows customization.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2 class="section-title">Skills & Tools</h2>
+  <p class="section-sub">
+    Current gear in the toolkit. More to follow as the work expands.
+  </p>
+
+  <div class="card">
+    <div class="skills-wrap">
+      <div class="skill-pill">VirtualBox</div>
+      <div class="skill-pill">OSINT Fundamentals</div>
+      <div class="skill-pill">Maltego</div>
+      <div class="skill-pill">Windows VM Environments</div>
+      <div class="skill-pill">Browser Hardening</div>
+      <div class="skill-pill">Investigative Documentation</div>
+      <div class="skill-pill">Cyber Lab Setup</div>
+      <div class="skill-pill">PowerShell Experimentation</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="logbook">
+  <h2 class="section-title">Logbook</h2>
+  <p class="section-sub">
+    This is the running operational picture — what’s built, what’s active, and what’s next on deck.
+  </p>
+
+  <div class="grid">
+    <div class="card span-4 log-card">
+      <h3>Completed</h3>
+      <ul>
+        <li>GitHub Pages portfolio deployment</li>
+        <li>VM lab project page</li>
+        <li>Maltego project page foundation</li>
+      </ul>
+    </div>
+
+    <div class="card span-4 log-card">
+      <h3>In Progress</h3>
+      <ul>
+        <li>Homepage polish</li>
+        <li>Maltego screenshots and findings</li>
+        <li>OSINT environment documentation</li>
+      </ul>
+    </div>
+
+    <div class="card span-4 log-card">
+      <h3>Next Up</h3>
+      <ul>
+        <li>Classified banner experiment page</li>
+        <li>First investigation write-up</li>
+        <li>Tools page and workflow notes</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <div class="footer">
-© 2026 Ty | Cybersecurity Portfolio
+  © 2026 Ty | Cybersecurity Portfolio
 </div>
 
 </body>
