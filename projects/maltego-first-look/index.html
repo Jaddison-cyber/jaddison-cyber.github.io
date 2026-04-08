@@ -5,14 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maltego First Look | Ty</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -22,16 +15,8 @@
       color: #e6edf7;
       line-height: 1.7;
     }
-
-    a {
-      color: #7ed7ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #b6ebff;
-    }
-
+    a { color: #7ed7ff; text-decoration: none; }
+    a:hover { color: #b6ebff; }
     .topbar {
       position: sticky;
       top: 0;
@@ -40,7 +25,6 @@
       background: rgba(5, 10, 24, 0.78);
       border-bottom: 1px solid rgba(126, 215, 255, 0.12);
     }
-
     .nav-wrap {
       max-width: 1050px;
       margin: 0 auto;
@@ -49,7 +33,6 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .brand {
       font-size: 1rem;
       font-weight: 700;
@@ -57,18 +40,15 @@
       text-transform: uppercase;
       color: #dcecff;
     }
-
     .nav-home {
       font-weight: 700;
       color: #a9dfff;
     }
-
     .hero {
       max-width: 1050px;
       margin: 0 auto;
       padding: 72px 24px 34px;
     }
-
     .eyebrow {
       display: inline-block;
       margin-bottom: 16px;
@@ -81,7 +61,6 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
-
     h1 {
       margin: 0 0 16px;
       font-size: 3rem;
@@ -89,26 +68,22 @@
       letter-spacing: -0.03em;
       color: #f7fbff;
     }
-
     .hero p {
       max-width: 760px;
       margin: 0;
       font-size: 1.06rem;
       color: #c9d9ea;
     }
-
     .section {
       max-width: 1050px;
       margin: 0 auto;
       padding: 18px 24px 30px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 22px;
     }
-
     .card {
       grid-column: span 12;
       background: linear-gradient(180deg, rgba(12, 20, 39, 0.96), rgba(8, 13, 25, 0.96));
@@ -117,38 +92,24 @@
       padding: 26px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
     }
-
     .card h2 {
       margin-top: 0;
       margin-bottom: 12px;
       font-size: 1.35rem;
       color: #f5fbff;
     }
-
     .card p, .card li {
       color: #cad8e7;
     }
-
-    .half {
-      grid-column: span 6;
-    }
-
-    .full {
-      grid-column: span 12;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
+    .half { grid-column: span 6; }
+    .full { grid-column: span 12; }
+    ul { margin: 0; padding-left: 20px; }
     .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 22px;
     }
-
     .meta-pill {
       padding: 10px 14px;
       border-radius: 999px;
@@ -157,13 +118,32 @@
       color: #d6ebf8;
       font-size: 0.95rem;
     }
-
+    .img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .img-box {
+      background: rgba(8, 14, 28, 0.96);
+      border: 1px dashed rgba(126, 215, 255, 0.2);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .img-box img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+    .img-note {
+      margin-top: 10px;
+      font-size: 0.94rem;
+      color: #a9bed3;
+    }
     .back-link {
       display: inline-block;
       margin-top: 10px;
       font-weight: 700;
     }
-
     footer {
       max-width: 1050px;
       margin: 0 auto;
@@ -172,26 +152,14 @@
       text-align: center;
       font-size: 0.95rem;
     }
-
     @media (max-width: 850px) {
-      .half {
-        grid-column: span 12;
-      }
-
-      h1 {
-        font-size: 2.3rem;
-      }
-
-      .nav-wrap {
-        flex-direction: column;
-        gap: 10px;
-      }
+      .half { grid-column: span 12; }
+      .img-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.3rem; }
+      .nav-wrap { flex-direction: column; gap: 10px; }
     }
-
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -208,8 +176,8 @@
     <div class="eyebrow">Project 02 • Tool Familiarization</div>
     <h1>Maltego First Look</h1>
     <p>
-      This project documents my early exposure to Maltego, including first impressions, initial setup,
-      and learning how link analysis tools can support investigative and OSINT workflows.
+      This project documents my early exposure to Maltego, including first impressions, setup, graph-based thinking,
+      and how link analysis tools support investigative workflows in OSINT-style work.
     </p>
 
     <div class="meta">
@@ -226,63 +194,77 @@
       <div class="card half">
         <h2>Objective</h2>
         <p>
-          Gain a working introduction to Maltego and begin understanding how it can be used to map relationships,
-          organize entities, and support open-source investigations.
+          Build a basic working familiarity with Maltego and begin understanding how entities, transforms,
+          and visual graphing can support investigative reasoning.
         </p>
       </div>
 
       <div class="card half">
         <h2>Why It Matters</h2>
         <p>
-          Investigations are often about connections, not just isolated facts. Maltego is valuable because it helps
-          visualize those relationships and makes large sets of information easier to analyze.
+          Investigations often live in the space between isolated data points. Maltego helps organize those points
+          into something visible, traceable, and easier to reason through.
         </p>
       </div>
 
       <div class="card full">
         <h2>What I Explored</h2>
         <ul>
-          <li>Basic setup and first interaction with the Maltego interface</li>
-          <li>How entities are placed and organized on a graph</li>
-          <li>The role of transforms in expanding available information</li>
-          <li>How visual mapping supports investigative thinking</li>
+          <li>Initial setup and first look at the interface</li>
+          <li>How entities are placed and expanded on a graph</li>
+          <li>The purpose of transforms in gathering additional data</li>
+          <li>How visual structure changes the way information is processed</li>
         </ul>
+      </div>
+
+      <div class="card full">
+        <h2>Screenshot Log</h2>
+        <div class="img-grid">
+          <div class="img-box">
+            <img src="/assets/images/maltego-graph-1.png" alt="Maltego graph screenshot 1">
+            <div class="img-note">Initial graph view showing early entity mapping and layout.</div>
+          </div>
+          <div class="img-box">
+            <img src="/assets/images/maltego-graph-2.png" alt="Maltego graph screenshot 2">
+            <div class="img-note">Second view capturing transforms or expanded investigative connections.</div>
+          </div>
+        </div>
       </div>
 
       <div class="card full">
         <h2>What I Learned</h2>
         <p>
-          My first impression of Maltego was that it is less about flashy visuals and more about structure.
-          It encourages an investigator to think in terms of relationships, patterns, and connected data points.
-          Even early exposure made it clear that link analysis is a different way of thinking than simple web searching.
+          My first impression of Maltego was that it rewards structure. It is not just a flashy graphing tool.
+          It pushes the user to think in terms of relationships, patterns, and how one data point can branch into others.
+          That makes it useful for investigative work where context matters just as much as raw facts.
         </p>
       </div>
 
       <div class="card half">
         <h2>Early Takeaways</h2>
         <ul>
-          <li>Entity mapping can reduce investigative chaos</li>
-          <li>Transforms appear powerful but need to be used deliberately</li>
-          <li>The tool makes connections easier to track visually</li>
-          <li>Documentation matters so findings stay organized</li>
+          <li>Entity mapping can reduce investigative clutter</li>
+          <li>Transforms appear powerful but should be used deliberately</li>
+          <li>Visual links can make hidden relationships easier to notice</li>
+          <li>Documentation is essential so graphs do not become chaos</li>
         </ul>
       </div>
 
       <div class="card half">
         <h2>Next Steps</h2>
         <ul>
-          <li>Run more hands-on transforms</li>
-          <li>Practice with domains, usernames, and public data points</li>
-          <li>Document a small real-world-style investigation workflow</li>
-          <li>Compare Maltego results with manual OSINT methods</li>
+          <li>Capture and upload actual screenshots from the VM</li>
+          <li>Run more hands-on transforms against public data</li>
+          <li>Compare Maltego output with manual OSINT methods</li>
+          <li>Document a small structured investigation using the tool</li>
         </ul>
       </div>
 
       <div class="card full">
         <h2>Project Status</h2>
         <p>
-          In progress. This page marks the beginning of my Maltego learning curve and will expand as I become more
-          comfortable using the platform in structured investigative exercises.
+          Active and expanding. This page marks the beginning of my Maltego learning curve and will be updated
+          as I build more confidence using graph-driven investigative workflows.
         </p>
         <p>
           <a class="back-link" href="/">← Back to main portfolio</a>
