@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSINT Environment Setup | Ty</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(32, 61, 122, 0.22), transparent 35%),
+        linear-gradient(180deg, #050814 0%, #07101f 45%, #04070f 100%);
+      color: #e6edf7;
+      line-height: 1.7;
+    }
+    a { color: #7ed7ff; text-decoration: none; }
+    a:hover { color: #b6ebff; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 10, 24, 0.78);
+      border-bottom: 1px solid rgba(126, 215, 255, 0.12);
+    }
+    .nav-wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #dcecff;
+    }
+    .nav-home {
+      font-weight: 700;
+      color: #a9dfff;
+    }
+    .hero {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 72px 24px 34px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border: 1px solid rgba(126, 215, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(17, 30, 58, 0.6);
+      color: #8fe3ff;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 3rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #f7fbff;
+    }
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.06rem;
+      color: #c9d9ea;
+    }
+    .section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 18px 24px 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, rgba(12, 20, 39, 0.96), rgba(8, 13, 25, 0.96));
+      border: 1px solid rgba(126, 215, 255, 0.11);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+    }
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+      color: #f5fbff;
+    }
+    .card p, .card li {
+      color: #cad8e7;
+    }
+    .half { grid-column: span 6; }
+    .full { grid-column: span 12; }
+    ul { margin: 0; padding-left: 20px; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(17, 31, 58, 0.9);
+      border: 1px solid rgba(126, 215, 255, 0.12);
+      color: #d6ebf8;
+      font-size: 0.95rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+    footer {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 18px 24px 50px;
+      color: #7f93aa;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 850px) {
+      .half { grid-column: span 12; }
+      h1 { font-size: 2.3rem; }
+      .nav-wrap { flex-direction: column; gap: 10px; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="nav-wrap">
+      <div class="brand">Ty // Cyber Portfolio</div>
+      <a class="nav-home" href="/">← Return to Homepage</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Project 03 • Workflow Setup</div>
+    <h1>OSINT Environment Setup</h1>
+    <p>
+      This project documents the early setup of a more deliberate OSINT working environment, including browser choices,
+      hardening decisions, workflow separation, and the foundation for safer investigative research habits.
+    </p>
+
+    <div class="meta">
+      <div class="meta-pill">OSINT</div>
+      <div class="meta-pill">Browser Hardening</div>
+      <div class="meta-pill">Workflow Separation</div>
+      <div class="meta-pill">OPSEC Mindset</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid">
+
+      <div class="card half">
+        <h2>Objective</h2>
+        <p>
+          Build a more intentional research environment inside the VM for OSINT work, with attention to privacy,
+          separation from the host machine, and cleaner documentation habits.
+        </p>
+      </div>
+
+      <div class="card half">
+        <h2>Why It Matters</h2>
+        <p>
+          OSINT work is not just about finding information. It is also about how you search, where you search from,
+          and how much operational sloppiness you carry into the process.
+        </p>
+      </div>
+
+      <div class="card full">
+        <h2>Environment Focus</h2>
+        <ul>
+          <li>Dedicated virtual machine for separation from the host system</li>
+          <li>Browser setup with attention to privacy and fingerprinting concerns</li>
+          <li>Early workflow decisions aimed at repeatability and cleaner tradecraft</li>
+          <li>Preparation for tool-based and manual OSINT tasks</li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <h2>What I Worked On</h2>
+        <p>
+          I used the VM as the base for creating a more controlled OSINT workspace. This included browser-level setup,
+          early hardening choices, and building a more deliberate environment for research rather than casually searching
+          from a normal daily-use system.
+        </p>
+      </div>
+
+      <div class="card half">
+        <h2>What I Learned</h2>
+        <p>
+          The setup phase matters more than it looks. Even before deep investigations begin, the environment itself shapes
+          the quality, consistency, and safety of the work. OPSEC is not a final step. It starts at setup.
+        </p>
+      </div>
+
+      <div class="card half">
+        <h2>Next Steps</h2>
+        <ul>
+          <li>Refine browser settings and extensions further</li>
+          <li>Document a repeatable search workflow</li>
+          <li>Add screenshots of the configured environment</li>
+          <li>Use this setup in future investigation write-ups</li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <h2>Project Status</h2>
+        <p>
+          Active and evolving. This environment is the groundwork for future OSINT exercises and more structured investigative work.
+        </p>
+        <p>
+          <a class="back-link" href="/">← Back to main portfolio</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Ty | Cybersecurity Portfolio
+  </footer>
+
+</body>
+</html>
