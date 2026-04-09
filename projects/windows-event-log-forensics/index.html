@@ -7,142 +7,191 @@
   <title>Windows Event Log Forensics | Ty</title>
   <style>
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(32, 61, 122, 0.22), transparent 35%),
-        linear-gradient(180deg, #050814 0%, #07101f 45%, #04070f 100%);
-      color: #e6edf7;
-      line-height: 1.7;
-    }
-    a { color: #7ed7ff; text-decoration: none; }
-    a:hover { color: #b6ebff; }
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-      background: rgba(5, 10, 24, 0.78);
-      border-bottom: 1px solid rgba(126, 215, 255, 0.12);
-    }
-    .nav-wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #dcecff;
-    }
-    .nav-home {
-      font-weight: 700;
-      color: #a9dfff;
-    }
-    .hero {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 72px 24px 34px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 7px 12px;
-      border: 1px solid rgba(126, 215, 255, 0.2);
-      border-radius: 999px;
-      background: rgba(17, 30, 58, 0.6);
-      color: #8fe3ff;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    h1 {
-      margin: 0 0 16px;
-      font-size: 3rem;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: #f7fbff;
-    }
-    .hero p {
-      max-width: 760px;
-      margin: 0;
-      font-size: 1.06rem;
-      color: #c9d9ea;
-    }
-    .section {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 18px 24px 30px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 22px;
-    }
-    .card {
-      grid-column: span 12;
-      background: linear-gradient(180deg, rgba(12, 20, 39, 0.96), rgba(8, 13, 25, 0.96));
-      border: 1px solid rgba(126, 215, 255, 0.11);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
-    }
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.35rem;
-      color: #f5fbff;
-    }
-    .card p, .card li {
-      color: #cad8e7;
-    }
-    .half { grid-column: span 6; }
-    .full { grid-column: span 12; }
-    ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-    .meta-pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(17, 31, 58, 0.9);
-      border: 1px solid rgba(126, 215, 255, 0.12);
-      color: #d6ebf8;
-      font-size: 0.95rem;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 10px;
-      font-weight: 700;
-    }
-    footer {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 18px 24px 50px;
-      color: #7f93aa;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-    @media (max-width: 850px) {
-      .half { grid-column: span 12; }
-      h1 { font-size: 2.3rem; }
-      .nav-wrap { flex-direction: column; gap: 10px; }
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-    }
+
+```
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(32, 61, 122, 0.22), transparent 35%),
+    linear-gradient(180deg, #050814 0%, #07101f 45%, #04070f 100%);
+  color: #e6edf7;
+  line-height: 1.7;
+}
+
+a {
+  color: #7ed7ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #b6ebff;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(5, 10, 24, 0.78);
+  border-bottom: 1px solid rgba(126, 215, 255, 0.12);
+}
+
+.nav-wrap {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #dcecff;
+}
+
+.nav-home {
+  font-weight: 700;
+  color: #a9dfff;
+}
+
+.hero {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 72px 24px 34px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 12px;
+  border: 1px solid rgba(126, 215, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(17, 30, 58, 0.6);
+  color: #8fe3ff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 3rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #f7fbff;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 1.06rem;
+  color: #c9d9ea;
+}
+
+.section {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 18px 24px 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+.card {
+  grid-column: span 12;
+  background: linear-gradient(180deg, rgba(12, 20, 39, 0.96), rgba(8, 13, 25, 0.96));
+  border: 1px solid rgba(126, 215, 255, 0.11);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  color: #f5fbff;
+}
+
+.card p,
+.card li {
+  color: #cad8e7;
+}
+
+.half {
+  grid-column: span 6;
+}
+
+.full {
+  grid-column: span 12;
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.meta-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(17, 31, 58, 0.9);
+  border: 1px solid rgba(126, 215, 255, 0.12);
+  color: #d6ebf8;
+  font-size: 0.95rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+footer {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 18px 24px 50px;
+  color: #7f93aa;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 850px) {
+  .half {
+    grid-column: span 12;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .nav-wrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+```
+
   </style>
 </head>
 <body>
@@ -158,8 +207,8 @@
     <div class="eyebrow">Project 04 • Digital Forensics</div>
     <h1>Windows Event Log Forensics</h1>
     <p>
-      This project documents a simulated insider threat investigation inside a Windows DFIR lab. 
-      The scenario focuses on unauthorized login attempts, successful access, process activity, 
+      This project documents a simulated insider threat investigation inside a Windows DFIR lab.
+      The scenario focuses on unauthorized login attempts, successful access, process activity,
       and USB device insertion used to reconstruct a potential data exfiltration event.
     </p>
 
@@ -181,7 +230,7 @@
   <div class="card half">
     <h2>Objective</h2>
     <p>
-      Simulate a terminated employee attempting to access a system and use Windows event logs 
+      Simulate a terminated employee attempting to access a system and use Windows event logs
       to determine whether unauthorized access and data exfiltration occurred.
     </p>
   </div>
@@ -189,8 +238,8 @@
   <div class="card half">
     <h2>Scenario</h2>
     <p>
-      A user account belonging to a former employee attempted multiple logins using an outdated 
-      password. After several failures, authentication succeeded. The user then accessed files 
+      A user account belonging to a former employee attempted multiple logins using an outdated
+      password. After several failures, authentication succeeded. The user then accessed files
       and connected a removable USB device before ending the session.
     </p>
   </div>
@@ -209,11 +258,11 @@
   <div class="card full">
     <h2>Timeline Reconstruction</h2>
     <ul>
-      <li>Multiple failed login attempts for terminated account</li>
+      <li>Multiple failed login attempts for the terminated account</li>
       <li>Successful interactive login recorded</li>
-      <li>File Explorer opened by user</li>
+      <li>File Explorer opened by the user</li>
       <li>File preview activity detected</li>
-      <li>USB device connected to system</li>
+      <li>USB device connected to the system</li>
       <li>Potential file copy activity prior to logout</li>
     </ul>
   </div>
@@ -231,8 +280,8 @@
   <div class="card half">
     <h2>What I Learned</h2>
     <p>
-      Individual Windows events rarely tell the full story. Correlating authentication logs, 
-      process execution, and device insertion artifacts provides a clearer forensic timeline 
+      Individual Windows events rarely tell the full story. Correlating authentication logs,
+      process execution, and device insertion artifacts provides a clearer forensic timeline
       and strengthens investigative conclusions.
     </p>
   </div>
@@ -240,10 +289,9 @@
   <div class="card full">
     <h2>Project Status</h2>
     <p>
-      Completed initial DFIR investigation scenario. Future updates will include screenshots 
+      Completed initial DFIR investigation scenario. Future updates will include screenshots
       of event evidence and expanded analysis of logout and account management events.
     </p>
-
     <p>
       <a class="back-link" href="/">← Back to main portfolio</a>
     </p>
